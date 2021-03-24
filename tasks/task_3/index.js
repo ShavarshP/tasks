@@ -1,6 +1,6 @@
-let addToDoButton = document.getElementById("addToDo");
-let inputField = document.getElementById("inputField");
-let toDoContainer = document.getElementById("toDoContainer");
+const addToDoButton = document.getElementById("addToDo");
+const inputField = document.getElementById("inputField");
+const toDoContainer = document.getElementById("toDoContainer");
 let isActive = true;
 let isDone = true;
 const todo = [];
@@ -59,4 +59,9 @@ filter = (t, i, arr) => {
     delete arr[i];
     writeList();
   });
+  paragraph.addEventListener('dblclick', function(){
+        inputField.value=t.value
+        delete arr[i];
+        writeList();
+    })
 };
