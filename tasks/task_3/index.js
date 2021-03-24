@@ -8,7 +8,6 @@ const todo = [];
 document.getElementById("active").addEventListener("click", function () {
   isDone = !isDone;
   writeList();
-
 });
 
 document.getElementById("done").addEventListener("click", function () {
@@ -16,9 +15,11 @@ document.getElementById("done").addEventListener("click", function () {
   writeList();
 });
 addToDoButton.addEventListener("click", function () {
-  todo.push({ isItDone: false, value: inputField.value });
-  inputField.value = "";
-  writeList();
+  if (inputField.value !== "") {
+    todo.push({ isItDone: false, value: inputField.value });
+    inputField.value = "";
+    writeList();
+  }
 });
 
 writeList = () => {
@@ -59,9 +60,9 @@ filter = (t, i, arr) => {
     delete arr[i];
     writeList();
   });
-  paragraph.addEventListener('dblclick', function(){
-        inputField.value=t.value
-        delete arr[i];
-        writeList();
-    })
+  paragraph.addEventListener("dblclick", function () {
+    inputField.value = t.value;
+    delete arr[i];
+    writeList();
+  });
 };
